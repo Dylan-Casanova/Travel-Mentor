@@ -1,0 +1,21 @@
+.row{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15px;
+}
+.card{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+nav{
+    text-align: center;
+    
+}
+
+.imgBox{
+    margin-top: 5%;
+
+    vertical-align: middle;
+    
+    text-align: center;
+}
