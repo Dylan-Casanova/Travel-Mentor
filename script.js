@@ -1,9 +1,23 @@
 // declearing variables to use in fuctions and loops
-var input = "colombia"
-var requestUrl = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c'
-var key ='AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c'
-// var youtubeId= 'https://www.youtube.com/embed/'+videoId+'"'
-var videoPlayer= $('#iframe')
+
+// var key ='AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+var videoPlayer= $('#iframe');
+
+var searchBoxEl = $('#searchBox');
+
+//var searchButtonEl = $('#searchButton');
+/*
+searchButtonEl.click(function() {
+  var input = $(searchBoxEl).val().trim();
+  var ytLink = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+
+  if(checkInput(input)){
+    searchYoutube(ytLink);
+    searchBooks(booksLink);
+  }
+
+})
+*/
 
 // getting the video id of youtube videos from youtube api
 function getApi(requestUrl) {
