@@ -5,6 +5,7 @@ var videoPlayer= $('#iframe');
 
 var searchBoxEl = $('#searchBox');
 
+var bookListItems = $('#bookList').children();
 //var searchButtonEl = $('#searchButton');
 /*
 searchButtonEl.click(function() {
@@ -46,17 +47,24 @@ function searchBooks(url){
   })
   .then( function(data) {
     var results = data.items;
-    for(var i=0; i < results.length; i++){
+    var booksArr = [];
+    for(var i=0; i < 4; i++){
       var title = results[i].volumeInfo.title;
       
       var authorsArr = results[i].volumeInfo.authors;
+      // put first author in string
       var authorsString = authorsArr[0];
+      // add remaining authors (if any) to string
       for(var j = 1; j < authorsArr.length; j++){
         authorsString += (", " + authorsArr[j] );
       }
-      console.log(i+1 + '. "' + title + '" by ' + authorsString);
+      // put string in array
+      booksArr[i] = i+1 + '. "' + title + '" by ' + authorsString;
     }
-
+    // put the text in the list of books
+    for(var i=0; i < bookListItems.length && i < booksArr.length; i++){
+      $(bookListItems[i]).text(booksArr[i]);
+    }
   })
 }
 
