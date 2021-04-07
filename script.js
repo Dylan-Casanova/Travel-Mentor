@@ -1,84 +1,35 @@
-//getting input from text input and getting input
-var searchBox = $('#textarea1');
-M.textareaAutoResize($('#textarea1'));
-
-<<<<<<< HEAD
-// search query
-var searchQ = ''
-// function to get each key press and return it to the string
-function keyPress(){
-  
-  var keyNum;
-  
-  $(searchBox).on("keypress" , function(e){
-    
-    keyNum = e.keyCode;
-    keylet = String.fromCharCode(keyNum)
-    keylet.concat(searchQ)
-
-    console.log(keylet)
-    
-  })
-}
-=======
-
->>>>>>> 18e8046da035fb11cf6848d22c2fa5f8de2f58dd
-
-var searchBtn = $('#searchBtn')
-
-function searchFun(event){
-  event.preventDefault();
-  var searchQ = $(searchBox).val();
-  console.log(searchQ);
-}
-
-<<<<<<< HEAD
-searchBtn.on('click' , searchFun() )
-=======
-
-searchBtn.on('click' , searchFun );
->>>>>>> 18e8046da035fb11cf6848d22c2fa5f8de2f58dd
-
-
 // declearing variables to use in fuctions and loops
-
-// var key ='AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
 var videoPlayer= $('#iframe');
-
 var searchBoxEl = $('#searchBox');
 var bookListEl = $('#bookList');
-//var searchButtonEl = $('#searchButton');
-/*
-searchButtonEl.click(function() {
-  var input = $(searchBoxEl).val().trim();
-  var ytLink = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
-
-  if(checkInput(input)){
-    searchYoutube(ytLink);
-    searchBooks(booksLink);
-  }
-
-})
-*/
+var videoListEl = $('#videoList');
 
 // getting the video id of youtube videos from youtube api
-function getApi(requestUrl) {
+function searchVideos(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
       console.log(response);
-      return response.json()
-    .then(function (data) {
-        console.log(data.items[0].id.videoId);
-        var videoId = (data.items[0].id.videoId);
-        console.log(videoId);
-        var embededId= 'https://www.youtube.com/embed/'+videoId;
-        videoPlayer.attr('src', embededId)
-
+      return response.json();
     })
-  }); 
-} 
-
-// getApi(requestUrl);
+    .then(function (data) {
+      console.log(data);
+        var outcome = (data.items);
+        console.log(outcome);
+        // for loop to get the video id from the data that the above function renders
+        for (var i=0; i < 6; i++){
+          var youtubeId = outcome[i].id.videoId;
+          console.log(youtubeId);
+        }
+        // variable to add videoId to the youtube embeded link
+        var embededId= 'https://www.youtube.com/embed/'+youtubeId;
+        console.log(embededId)
+        // videoPlayer.attr('src', embededId)
+    })
+  }; 
+ 
+var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+  var input = "mexico"
+searchVideos(requestUrl);
 
 
 function searchBooks(url){
@@ -92,7 +43,7 @@ function searchBooks(url){
     var booksArr = [];
     var titlesArr = [];
     var authorsStringArr = [];
-    for(var i=0; i < 4; i++){
+    for(var i=0; i < 6; i++){
       var title = results[i].volumeInfo.title;
       
       var authorsArr = results[i].volumeInfo.authors;
@@ -110,7 +61,7 @@ function searchBooks(url){
     }
 
     // populate the list of books
-    for(var i=0; i < 5 && i < booksArr.length; i++){
+    for(var i=0; i < 6 && i < booksArr.length; i++){
       // make elements
       var item = document.createElement('li');
       var linkEl = document.createElement('a');
@@ -119,11 +70,12 @@ function searchBooks(url){
       var textDivEl = document.createElement('div');
       var titleEl = document.createElement('p');
       var authorEl = document.createElement('p');
+      var favButtonEl = document.createElement('i');
       
       // chain them together
       $(item).append(linkEl);
       $(linkEl).append(divEl);
-      $(divEl).append(bookThumbnail, textDivEl)
+      $(divEl).append(bookThumbnail, textDivEl, favButtonEl);
       $(textDivEl).append(titleEl, authorEl);
 
       // assign img src for thumbnail
@@ -136,6 +88,7 @@ function searchBooks(url){
       // set other classes
       $(divEl).addClass('listItemContent');
       $(textDivEl).addClass('listText');
+      $(favButtonEl).addClass('far fa-heart');
       // set link attributes to open in new tab
       $(linkEl).attr({
         href: results[i].volumeInfo.infoLink,
@@ -146,6 +99,17 @@ function searchBooks(url){
 
       $(bookListEl).append(item);
 
+      $(favButtonEl).click( function(event){
+        event.preventDefault();
+        if($(event.target).hasClass('far')){
+          $(event.target).addClass('fas');
+          $(event.target).removeClass('far');
+        }
+        else {
+          $(event.target).addClass('far');
+          $(event.target).removeClass('fas');
+        }
+      })
 
      
 
