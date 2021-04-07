@@ -48,19 +48,23 @@ function searchBooks(url){
     console.log(data);
     var results = data.items;
     var booksArr = [];
+    var titlesArr = [];
+    var authorsStringArr = [];
     for(var i=0; i < 4; i++){
       var title = results[i].volumeInfo.title;
       
       var authorsArr = results[i].volumeInfo.authors;
+      console.log(authorsArr);
       // put first author in string
       var authorsString = authorsArr[0];
       // add remaining authors (if any) to string
       for(var j = 1; j < authorsArr.length; j++){
         authorsString += (", " + authorsArr[j] );
       }
-      // put string in array
+      // put string in arrays
       booksArr[i] = '"' + title + '" by ' + authorsString;
-
+      titlesArr[i] = title;
+      authorsStringArr[i] = authorsString;
     }
 
     // populate the list of books
@@ -70,15 +74,26 @@ function searchBooks(url){
       var linkEl = document.createElement('a');
       var divEl = document.createElement('div');
       var bookThumbnail = document.createElement('img');
-      var bookTextEl = document.createElement('p');
-      // add a link to list item
+      var textDivEl = document.createElement('div');
+      var titleEl = document.createElement('p');
+      var authorEl = document.createElement('p');
+      
+      // chain them together
       $(item).append(linkEl);
       $(linkEl).append(divEl);
-      $(divEl).append(bookThumbnail, bookTextEl);
+      $(divEl).append(bookThumbnail, textDivEl)
+      $(textDivEl).append(titleEl, authorEl);
+
       // assign img src for thumbnail
       $(bookThumbnail).attr('src', results[i].volumeInfo.imageLinks.smallThumbnail);
-      // set book text
-      $(bookTextEl).text(booksArr[i]);
+      // set title/author text
+      $(titleEl).text(titlesArr[i]);
+      $(titleEl).addClass('title');
+      $(authorEl).text(authorsStringArr[i]);
+      $(authorEl).addClass('author');
+      // set other classes
+      $(divEl).addClass('listItemContent');
+      $(textDivEl).addClass('listText');
       // set link attributes to open in new tab
       $(linkEl).attr({
         href: results[i].volumeInfo.infoLink,
@@ -86,7 +101,6 @@ function searchBooks(url){
         rel: 'noopener noreferrer'
       });
       $(item).addClass('collection-item');
-      $(bookTextEl).addClass('right');
 
       $(bookListEl).append(item);
 
