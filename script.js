@@ -1,3 +1,7 @@
+//getting input from text input and getting input
+var searchBox =  $('#textarea1').val('New Text');
+console.log(searchBox)
+
 // declearing variables to use in fuctions and loops
 
 // var key ='AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
