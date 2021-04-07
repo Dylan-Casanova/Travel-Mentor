@@ -1,6 +1,32 @@
 //getting input from text input and getting input
-var searchBox =  $('#textarea1').val('New Text');
-console.log(searchBox)
+var searchBox = $('#textarea1');
+M.textareaAutoResize($('#textarea1'));
+var searchQ = ''
+
+function keyPress(){
+  var keyNum;
+
+  $(searchBox).on("keypress" , function(e){
+    
+    keyNum = e.keyCode;
+    keylet = String.fromCharCode(keyNum)
+    keylet.concat(searchQ)
+
+    console.log(keylet)
+    
+  })
+}
+
+var searchBtn = $('#searchBtn')
+
+function searchFun(searchQ){
+  
+}
+
+
+searchBtn.on('click' , searchFun() )
+
+keyPress()
 
 // declearing variables to use in fuctions and loops
 
