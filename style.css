@@ -36,6 +36,7 @@ nav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* text in book list */
@@ -45,4 +46,10 @@ nav{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.fa-heart {
+  /* color: rgb(214, 65, 65); */
+  color:rgb(238, 40, 40);
+  font-size: 30px;
 }
