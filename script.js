@@ -4,8 +4,7 @@
 var videoPlayer= $('#iframe');
 
 var searchBoxEl = $('#searchBox');
-
-var bookListItems = $('#bookList').children();
+var bookListEl = $('#bookList');
 //var searchButtonEl = $('#searchButton');
 /*
 searchButtonEl.click(function() {
@@ -60,18 +59,37 @@ function searchBooks(url){
         authorsString += (", " + authorsArr[j] );
       }
       // put string in array
-      booksArr[i] = i+1 + '. "' + title + '" by ' + authorsString;
-      
+      booksArr[i] = '"' + title + '" by ' + authorsString;
 
     }
-    // put the text in the list of books
-    for(var i=0; i < bookListItems.length && i < booksArr.length; i++){
-      $(bookListItems[i]).text(booksArr[i]);
-      // get the book link
-      var bookstoreLink = results[i].volumeInfo.infoLink;
-      $(bookListItems[i]).attr('href', bookstoreLink);
-      $(bookListItems[i]).attr('target', '_blank');
-      $(bookListItems[i]).attr('rel', 'noopener noreferrer');
+
+    // populate the list of books
+    for(var i=0; i < 5 && i < booksArr.length; i++){
+      // make elements
+      var item = document.createElement('li');
+      var linkEl = document.createElement('a');
+      var bookThumbnail = document.createElement('img');
+      var bookTextEl = document.createElement('p');
+      $(item).append(linkEl);
+      $(linkEl).append(bookThumbnail, bookTextEl);
+      // assign img src for thumbnail
+      // console.log(results[i]);
+      $(bookThumbnail).attr('src', results[i].volumeInfo.imageLinks.smallThumbnail);
+      // set book text
+      $(bookTextEl).text(booksArr[i]);
+      // set link attributes to open in new tab
+      $(linkEl).attr({
+        href: results[i].volumeInfo.infoLink,
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      });
+      $(item).addClass('collection-item');
+      $(bookTextEl).addClass('right');
+
+      $(bookListEl).append(item);
+
+
+     
 
     }
   })
