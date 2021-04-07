@@ -1,11 +1,14 @@
 //getting input from text input and getting input
 var searchBox = $('#textarea1');
 M.textareaAutoResize($('#textarea1'));
+
+// search query
 var searchQ = ''
-
+// function to get each key press and return it to the string
 function keyPress(){
+  
   var keyNum;
-
+  
   $(searchBox).on("keypress" , function(e){
     
     keyNum = e.keyCode;
@@ -22,7 +25,6 @@ var searchBtn = $('#searchBtn')
 function searchFun(searchQ){
   
 }
-
 
 searchBtn.on('click' , searchFun() )
 
