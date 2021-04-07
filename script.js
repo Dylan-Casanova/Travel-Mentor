@@ -68,12 +68,14 @@ function searchBooks(url){
       // make elements
       var item = document.createElement('li');
       var linkEl = document.createElement('a');
+      var divEl = document.createElement('div');
       var bookThumbnail = document.createElement('img');
       var bookTextEl = document.createElement('p');
+      // add a link to list item
       $(item).append(linkEl);
-      $(linkEl).append(bookThumbnail, bookTextEl);
+      $(linkEl).append(divEl);
+      $(divEl).append(bookThumbnail, bookTextEl);
       // assign img src for thumbnail
-      // console.log(results[i]);
       $(bookThumbnail).attr('src', results[i].volumeInfo.imageLinks.smallThumbnail);
       // set book text
       $(bookTextEl).text(booksArr[i]);
