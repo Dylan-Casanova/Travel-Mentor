@@ -19,3 +19,30 @@ nav{
     
     text-align: center;
 }
+
+.title {
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.author {
+  color: black;
+  font-size: 14px;
+}
+
+/* items in book list */
+.listItemContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* text in book list */
+.listText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

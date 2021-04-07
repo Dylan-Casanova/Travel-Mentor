@@ -4,8 +4,7 @@
 var videoPlayer= $('#iframe');
 
 var searchBoxEl = $('#searchBox');
-
-var bookListItems = $('#bookList').children();
+var bookListEl = $('#bookList');
 //var searchButtonEl = $('#searchButton');
 /*
 searchButtonEl.click(function() {
@@ -46,24 +45,68 @@ function searchBooks(url){
     return response.json();
   })
   .then( function(data) {
+    console.log(data);
     var results = data.items;
     var booksArr = [];
+    var titlesArr = [];
+    var authorsStringArr = [];
     for(var i=0; i < 4; i++){
       var title = results[i].volumeInfo.title;
       
       var authorsArr = results[i].volumeInfo.authors;
+      console.log(authorsArr);
       // put first author in string
       var authorsString = authorsArr[0];
       // add remaining authors (if any) to string
       for(var j = 1; j < authorsArr.length; j++){
         authorsString += (", " + authorsArr[j] );
       }
-      // put string in array
-      booksArr[i] = i+1 + '. "' + title + '" by ' + authorsString;
+      // put string in arrays
+      booksArr[i] = '"' + title + '" by ' + authorsString;
+      titlesArr[i] = title;
+      authorsStringArr[i] = authorsString;
     }
-    // put the text in the list of books
-    for(var i=0; i < bookListItems.length && i < booksArr.length; i++){
-      $(bookListItems[i]).text(booksArr[i]);
+
+    // populate the list of books
+    for(var i=0; i < 5 && i < booksArr.length; i++){
+      // make elements
+      var item = document.createElement('li');
+      var linkEl = document.createElement('a');
+      var divEl = document.createElement('div');
+      var bookThumbnail = document.createElement('img');
+      var textDivEl = document.createElement('div');
+      var titleEl = document.createElement('p');
+      var authorEl = document.createElement('p');
+      
+      // chain them together
+      $(item).append(linkEl);
+      $(linkEl).append(divEl);
+      $(divEl).append(bookThumbnail, textDivEl)
+      $(textDivEl).append(titleEl, authorEl);
+
+      // assign img src for thumbnail
+      $(bookThumbnail).attr('src', results[i].volumeInfo.imageLinks.smallThumbnail);
+      // set title/author text
+      $(titleEl).text(titlesArr[i]);
+      $(titleEl).addClass('title');
+      $(authorEl).text(authorsStringArr[i]);
+      $(authorEl).addClass('author');
+      // set other classes
+      $(divEl).addClass('listItemContent');
+      $(textDivEl).addClass('listText');
+      // set link attributes to open in new tab
+      $(linkEl).attr({
+        href: results[i].volumeInfo.infoLink,
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      });
+      $(item).addClass('collection-item');
+
+      $(bookListEl).append(item);
+
+
+     
+
     }
   })
 }
