@@ -48,8 +48,18 @@ nav{
   align-items: center;
 }
 
-.fa-heart {
-  /* color: rgb(214, 65, 65); */
-  color:rgb(238, 40, 40);
+i {
   font-size: 30px;
+}
+
+.fa-plus-square {
+  color:rgb(14, 117, 0);
+}
+
+.fa-check-square {
+  color: lightgreen;
+}
+
+.fa-trash-alt {
+  color: red;
 }

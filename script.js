@@ -95,7 +95,7 @@ function searchBooks(url){
       // set other classes
       $(divEl).addClass('listItemContent');
       $(textDivEl).addClass('listText');
-      $(favButtonEl).addClass('far fa-heart');
+      $(favButtonEl).addClass('far fa-plus-square');
       // set link attributes to open in new tab
       $(linkEl).attr({
         href: results[i].volumeInfo.infoLink,
@@ -103,9 +103,10 @@ function searchBooks(url){
         rel: 'noopener noreferrer'
       });
       $(item).addClass('collection-item');
-
+      
+      // append the list item
       $(bookListEl).append(item);
-
+      // add to favorites when the button is clicked
       $(favButtonEl).click( addToFavorites );
 
      
@@ -118,19 +119,26 @@ function searchBooks(url){
 
 function addToFavorites(event) {
   event.preventDefault();
-  $(event.target).addClass('fas');
-  $(event.target).removeClass('far');
-  var item = $(event.target).closest('li');
-  var favItem = $(item).clone().prependTo('#favsList');
-  var newIcon = $(favItem).find('i');
-  $(newIcon).removeClass('fa-heart').addClass('fa-trash-alt');
-  $(newIcon).click( removeFromFavorites );
+  // only add if not already in
+  if($(event.target).hasClass('fa-plus-square')){
+    // make the heart icon solid color
+    $(event.target).addClass('fa-check-square');
+    $(event.target).removeClass('fa-plus-square');
+    // target the item associated with the button
+    var item = $(event.target).closest('li');
+    // copy it and append it the favs list
+    var favItem = $(item).clone().prependTo('#favsList');
+    // change the icon to a trash can
+    var newIcon = $(favItem).find('i');
+    $(newIcon).removeClass('fa-check-square').addClass('fa-trash-alt');
+    // remove item upon clicking trash icon
+    $(newIcon).click( removeFromFavorites );
+  }
+  
 }
 
 function removeFromFavorites(event) {
   event.preventDefault();
-  $(event.target).addClass('far');
-  $(event.target).removeClass('fas');
   var item = $(event.target).closest('li');
   $(item).remove();
 }
