@@ -2,6 +2,7 @@
 var searchBox = $('#textarea1');
 M.textareaAutoResize($('#textarea1'));
 
+<<<<<<< HEAD
 // search query
 var searchQ = ''
 // function to get each key press and return it to the string
@@ -19,16 +20,25 @@ function keyPress(){
     
   })
 }
+=======
+
+>>>>>>> 18e8046da035fb11cf6848d22c2fa5f8de2f58dd
 
 var searchBtn = $('#searchBtn')
 
-function searchFun(searchQ){
-  
+function searchFun(event){
+  event.preventDefault();
+  var searchQ = $(searchBox).val();
+  console.log(searchQ);
 }
 
+<<<<<<< HEAD
 searchBtn.on('click' , searchFun() )
+=======
 
-keyPress()
+searchBtn.on('click' , searchFun );
+>>>>>>> 18e8046da035fb11cf6848d22c2fa5f8de2f58dd
+
 
 // declearing variables to use in fuctions and loops
 
