@@ -106,21 +106,7 @@ function searchBooks(url){
 
       $(bookListEl).append(item);
 
-<<<<<<< HEAD
-      $(favButtonEl).click( function(event){
-        event.preventDefault();
-        if($(event.target).hasClass('far')){
-          $(event.target).addClass('fas');
-          $(event.target).removeClass('far');
-        }
-        else {
-          $(event.target).addClass('far');
-          $(event.target).removeClass('fas');
-        }
-      })
-=======
       $(favButtonEl).click( addToFavorites );
->>>>>>> d7b22e5c2af823efdccda75f155459dd78cf1d5c
 
      
 
