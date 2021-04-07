@@ -50,7 +50,7 @@ function searchBooks(url){
     var booksArr = [];
     var titlesArr = [];
     var authorsStringArr = [];
-    for(var i=0; i < 4; i++){
+    for(var i=0; i < 6; i++){
       var title = results[i].volumeInfo.title;
       
       var authorsArr = results[i].volumeInfo.authors;
@@ -68,7 +68,7 @@ function searchBooks(url){
     }
 
     // populate the list of books
-    for(var i=0; i < 5 && i < booksArr.length; i++){
+    for(var i=0; i < 6 && i < booksArr.length; i++){
       // make elements
       var item = document.createElement('li');
       var linkEl = document.createElement('a');
@@ -77,11 +77,12 @@ function searchBooks(url){
       var textDivEl = document.createElement('div');
       var titleEl = document.createElement('p');
       var authorEl = document.createElement('p');
+      var favButtonEl = document.createElement('i');
       
       // chain them together
       $(item).append(linkEl);
       $(linkEl).append(divEl);
-      $(divEl).append(bookThumbnail, textDivEl)
+      $(divEl).append(bookThumbnail, textDivEl, favButtonEl);
       $(textDivEl).append(titleEl, authorEl);
 
       // assign img src for thumbnail
@@ -94,6 +95,7 @@ function searchBooks(url){
       // set other classes
       $(divEl).addClass('listItemContent');
       $(textDivEl).addClass('listText');
+      $(favButtonEl).addClass('far fa-heart');
       // set link attributes to open in new tab
       $(linkEl).attr({
         href: results[i].volumeInfo.infoLink,
@@ -104,6 +106,17 @@ function searchBooks(url){
 
       $(bookListEl).append(item);
 
+      $(favButtonEl).click( function(event){
+        event.preventDefault();
+        if($(event.target).hasClass('far')){
+          $(event.target).addClass('fas');
+          $(event.target).removeClass('far');
+        }
+        else {
+          $(event.target).addClass('far');
+          $(event.target).removeClass('fas');
+        }
+      })
 
      
 
