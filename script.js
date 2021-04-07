@@ -46,6 +46,7 @@ function searchBooks(url){
     return response.json();
   })
   .then( function(data) {
+    console.log(data);
     var results = data.items;
     var booksArr = [];
     for(var i=0; i < 4; i++){
@@ -60,10 +61,18 @@ function searchBooks(url){
       }
       // put string in array
       booksArr[i] = i+1 + '. "' + title + '" by ' + authorsString;
+      
+
     }
     // put the text in the list of books
     for(var i=0; i < bookListItems.length && i < booksArr.length; i++){
       $(bookListItems[i]).text(booksArr[i]);
+      // get the book link
+      var bookstoreLink = results[i].volumeInfo.infoLink;
+      $(bookListItems[i]).attr('href', bookstoreLink);
+      $(bookListItems[i]).attr('target', '_blank');
+      $(bookListItems[i]).attr('rel', 'noopener noreferrer');
+
     }
   })
 }
