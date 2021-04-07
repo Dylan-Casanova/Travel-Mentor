@@ -99,6 +99,7 @@ function searchBooks(url){
 
       $(bookListEl).append(item);
 
+<<<<<<< HEAD
       $(favButtonEl).click( function(event){
         event.preventDefault();
         if($(event.target).hasClass('far')){
@@ -110,11 +111,35 @@ function searchBooks(url){
           $(event.target).removeClass('fas');
         }
       })
+=======
+      $(favButtonEl).click( addToFavorites );
+>>>>>>> d7b22e5c2af823efdccda75f155459dd78cf1d5c
 
      
 
     }
   })
+}
+
+
+
+function addToFavorites(event) {
+  event.preventDefault();
+  $(event.target).addClass('fas');
+  $(event.target).removeClass('far');
+  var item = $(event.target).closest('li');
+  var favItem = $(item).clone().prependTo('#favsList');
+  var newIcon = $(favItem).find('i');
+  $(newIcon).removeClass('fa-heart').addClass('fa-trash-alt');
+  $(newIcon).click( removeFromFavorites );
+}
+
+function removeFromFavorites(event) {
+  event.preventDefault();
+  $(event.target).addClass('far');
+  $(event.target).removeClass('fas');
+  var item = $(event.target).closest('li');
+  $(item).remove();
 }
 
 var key = `AIzaSyDWNMiooGhkXMAhnoTL8pudTR83im36YPo`;
