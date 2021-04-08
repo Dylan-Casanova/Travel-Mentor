@@ -35,6 +35,7 @@ function searchVideos(requestUrl) {
           console.log(youtubeIdArr[d]);
           $(entry).append(display);
           $(videoListEl).append(entry);
+          // adding src as as attr to iframe on html
           $(display).attr('src',embededId+youtubeIdArr[d]);
           console.log(display)
         }

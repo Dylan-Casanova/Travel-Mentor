@@ -50,6 +50,11 @@ nav{
 
 i {
   font-size: 30px;
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> bb3d05345ff48fef4f9275e9fa8033d760dcd027
 }
 
 .fa-plus-square {
@@ -62,4 +67,11 @@ i {
 
 .fa-trash-alt {
   color: red;
+<<<<<<< HEAD
+}
+.videos {
+  padding: 3%;
+>>>>>>> Stashed changes
+=======
+>>>>>>> bb3d05345ff48fef4f9275e9fa8033d760dcd027
 }
