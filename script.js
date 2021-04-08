@@ -12,30 +12,37 @@ function searchVideos(requestUrl) {
       return response.json();
     })
     .then(function (data) {
-        var outcome = (data.items);
+        var outcome = data.items;
         console.log(outcome);
+        console.log(data);
         // created an array to stored the incoming data and use it later
-        var youtubeIdArr = []
+        var youtubeIdArr = [];
         // for loop to get the video id from the data that the above function renders
         for (var i=0; i < 6; i++){
           var youtubeId = outcome[i].id.videoId;
           youtubeIdArr[i]= youtubeId;
         }
-        console.log(youtubeIdArr)
-        // variable to add videoId to the youtube embeded link
-        var embededId= 'https://www.youtube.com/embed/'+youtubeId;
-        console.log(embededId)
+          console.log(youtubeIdArr);
+          // variable to add videoId to the youtube embeded link
+          var embededId= 'https://www.youtube.com/embed/';
+          console.log(embededId);
+        
         // creating for loop to populate video's list
         for (var d=0; d < 6 && d < youtubeIdArr.length; d++){
-        var entry =document.createElement('li');
-        var display =document.createElement('iframe');
-        $(entry).append(display);
-        $(videoListEl).append(entry);
-    }})
+          var embededId= 'https://www.youtube.com/embed/';
+          var entry =document.createElement('li');
+          var display =document.createElement('iframe');
+          console.log(youtubeIdArr[d]);
+          $(entry).append(display);
+          $(videoListEl).append(entry);
+          $(display).attr('src',embededId+youtubeIdArr[d]);
+          console.log(display)
+        }
+    })
   }; 
- 
+var input = "mexico"
 var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
-  var input = "mexico"
+  
 searchVideos(requestUrl);
 
 
