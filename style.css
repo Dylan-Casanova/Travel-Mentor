@@ -64,6 +64,12 @@ i {
   color: red;
 
 }
+
+.videos {
+  padding: 3%;
+}
+
 .bottom-border{
   border-bottom: 3px dashed black;
 }
+
