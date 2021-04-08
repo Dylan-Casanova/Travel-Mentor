@@ -60,7 +60,7 @@ function searchVideos(requestUrl) {
   };
 
 var input = "mexico"
-var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyCXiKGRPWrJLlD5LMm3lrF4Rt3-VSfZilw';
   
 searchVideos(requestUrl);
 
