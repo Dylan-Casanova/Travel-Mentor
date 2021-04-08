@@ -33,10 +33,10 @@
     <div class="card">
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
-            <li class="tab"><a href="#VideoSection">Videos</a></li>
-            <li class="tab"><a class="active" href="#test5">Books</a></li>
-            <li class="tab"><a href="#test6">Currency Calculator</a></li>
-            <li class="tab"><a href="#test7">Favorites</a></li>
+            
+            <li class="tab"><a href="#sectionBooks">Books</a></li>
+            <li class="tab"><a href="#videoPlayer">Videos</a></li>
+            <li class="tab"><a href="#sectionFavorites">Favorites</a></li>
           </ul>
         </div>
     </div>
@@ -45,10 +45,11 @@
     </div> -->
 
     
-        <div class="container">
+        <div class="container" id="sectionBooks">
             <h1>Books </h1>
             <ul class="collection" id="bookList">
                 <!-- <a href="#!" class="collection-item">Alvin</a> -->
+                
             </ul>
         </div>
         <!-- creating a container for the videos /<iframe> tags -->
@@ -88,13 +89,23 @@
           </div>
           
         </div>
-
-        <div class="container">
-          <h1>Favorites</h1>
+        <div class = "container" id="sectionFavorites"><h1>Favorites</h1></div>
+        <div class="container" id= "favListings">
+          
+          <div class = "books">
           <ul id="favsList" class="collection">
-
+            
+              
           </ul>
-        </div>
+          </div>
+            <div class = "videos">
+              <ul>
+                <li>
+                  <iframe width= 100% height="380" src="https://www.youtube.com/embed/HwuNEaVNNIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li>
+              <ul>
+            </div>
+          </div>
         
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
