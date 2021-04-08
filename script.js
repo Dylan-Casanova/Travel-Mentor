@@ -1,11 +1,18 @@
 //adding function for button and search
-var searchBox = $('searchBox').val();
-var searchBtn = $('searchBtn').val();
- 
+var searchBox = $('#searchBox');
+M.textareaAutoResize($('#searchBox'));
 
+var searchBtn = $('#searchBtn');
 
+// what we call on a click
+searchBtn.on('click' , getInput )
 
-
+// getting the input from the user
+function getInput(event){
+  event.preventDefault();
+  var searchQuery;
+  searchQuery = ($(searchBox).val());
+}
 
 
 
