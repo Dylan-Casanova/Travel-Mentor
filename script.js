@@ -1,3 +1,15 @@
+//adding function for button and search
+var searchBox = $('searchBox').val();
+var searchBtn = $('searchBtn').val();
+ 
+
+
+
+
+
+
+
+
 // declearing variables to use in fuctions and loops
 var videoPlayer= $('#iframe');
 var searchBoxEl = $('#searchBox');
