@@ -59,7 +59,8 @@ function searchVideos(requestUrl) {
           console.log(display)
         }
     })
-  }; 
+  };
+
 var input = "mexico"
 var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
   
@@ -181,7 +182,7 @@ function removeFromFavorites(event) {
   localStorage.setItem('favorites', favorites);
 }
 
-var key = `AIzaSyDWNMiooGhkXMAhnoTL8pudTR83im36YPo`;
+var key = `AIzaSyCXiKGRPWrJLlD5LMm3lrF4Rt3-VSfZilw`;
 var searchTerm = `mexico+travel+guide`;
 var url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${key}`;
 searchBooks(url);
@@ -190,3 +191,5 @@ if(!favorites){
   favorites = '';
 }
 $('#favsList').html(favorites);
+
+
