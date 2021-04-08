@@ -12,6 +12,14 @@ function getInput(event){
   event.preventDefault();
   var searchQuery;
   searchQuery = ($(searchBox).val());
+  console.log(searchQuery);
+  var ytUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+searchQuery+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+  searchVideos(ytUrl);
+
+  var key = `AIzaSyDWNMiooGhkXMAhnoTL8pudTR83im36YPo`;
+  
+  var bookUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}+travel+guide&key=${key}`;
+  searchBooks(bookUrl);
 }
 
 
@@ -60,9 +68,8 @@ function searchVideos(requestUrl) {
   };
 
 var input = "mexico"
-var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyCXiKGRPWrJLlD5LMm3lrF4Rt3-VSfZilw';
   
-searchVideos(requestUrl);
+// searchVideos(requestUrl);
 
 
 function searchBooks(url){
@@ -180,10 +187,7 @@ function removeFromFavorites(event) {
   localStorage.setItem('favorites', favorites);
 }
 
-var key = `AIzaSyCXiKGRPWrJLlD5LMm3lrF4Rt3-VSfZilw`;
-var searchTerm = `mexico+travel+guide`;
-var url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${key}`;
-searchBooks(url);
+
 var favorites = localStorage.getItem('favorites');
 if(!favorites){
   favorites = '';
