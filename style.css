@@ -52,4 +52,22 @@ nav{
   /* color: rgb(214, 65, 65); */
   color:rgb(238, 40, 40);
   font-size: 30px;
+<<<<<<< Updated upstream
+=======
+}
+
+.fa-plus-square {
+  color:rgb(14, 117, 0);
+}
+
+.fa-check-square {
+  color: lightgreen;
+}
+
+.fa-trash-alt {
+  color: red;
+}
+.videos {
+  padding: 3%;
+>>>>>>> Stashed changes
 }
