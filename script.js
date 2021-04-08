@@ -113,6 +113,7 @@ function searchBooks(url){
       
       // append the list item
       $(bookListEl).append(item);
+      console.log($(item));
       // add to favorites when the button is clicked
       $(favButtonEl).click( addToFavorites );
 
@@ -138,6 +139,12 @@ function addToFavorites(event) {
     // change the icon to a trash can
     var newIcon = $(favItem).find('i');
     $(newIcon).removeClass('fa-check-square').addClass('fa-trash-alt');
+
+    // update list to local storage
+    favorites = $('#favsList').html();
+    localStorage.setItem('favorites', favorites);
+
+
     // remove item upon clicking trash icon
     $(newIcon).click( removeFromFavorites );
   }
@@ -148,9 +155,18 @@ function removeFromFavorites(event) {
   event.preventDefault();
   var item = $(event.target).closest('li');
   $(item).remove();
+
+  // update list to local storage
+  favorites = $('#favsList').html();
+  localStorage.setItem('favorites', favorites);
 }
 
 var key = `AIzaSyDWNMiooGhkXMAhnoTL8pudTR83im36YPo`;
 var searchTerm = `mexico+travel+guide`;
 var url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${key}`;
 searchBooks(url);
+var favorites = localStorage.getItem('favorites');
+if(!favorites){
+  favorites = '';
+}
+$('#favsList').html(favorites);
