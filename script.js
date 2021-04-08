@@ -47,16 +47,14 @@ function searchVideos(requestUrl) {
           console.log(embededId);
         
         // creating for loop to populate video's list
+        var iframeEl =$('#videoPlayer').find('iframe');
         for (var d=0; d < 6 && d < youtubeIdArr.length; d++){
           var embededId= 'https://www.youtube.com/embed/';
-          var entry =document.createElement('li');
-          var display =document.createElement('iframe');
+          // adding the youtube url and id to our iframes on html
+          $(iframeEl[d]).attr('src',embededId+youtubeIdArr[d]);
+
           console.log(youtubeIdArr[d]);
-          $(entry).append(display);
-          $(videoListEl).append(entry);
-          // adding src as as attr to iframe on html
-          $(display).attr('src',embededId+youtubeIdArr[d]);
-          console.log(display)
+         
         }
     })
   }; 
