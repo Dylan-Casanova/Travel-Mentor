@@ -67,7 +67,7 @@ function searchVideos(requestUrl) {
     })
   };
 
-var input = "mexico"
+
   
 // searchVideos(requestUrl);
 
