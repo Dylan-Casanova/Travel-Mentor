@@ -34,7 +34,7 @@ function searchVideos(requestUrl) {
     }})
   }; 
  
-var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+var requestUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+input+'+travel'+'&key=AIzaSyBGwr22Ecdgw0oMgnqljG9Bf8O1tH1buIo';
   var input = "mexico"
 searchVideos(requestUrl);
 
@@ -106,6 +106,7 @@ function searchBooks(url){
       
       // append the list item
       $(bookListEl).append(item);
+      console.log($(item));
       // add to favorites when the button is clicked
       $(favButtonEl).click( addToFavorites );
 
@@ -131,6 +132,12 @@ function addToFavorites(event) {
     // change the icon to a trash can
     var newIcon = $(favItem).find('i');
     $(newIcon).removeClass('fa-check-square').addClass('fa-trash-alt');
+
+    // update list to local storage
+    favorites = $('#favsList').html();
+    localStorage.setItem('favorites', favorites);
+
+
     // remove item upon clicking trash icon
     $(newIcon).click( removeFromFavorites );
   }
@@ -141,9 +148,18 @@ function removeFromFavorites(event) {
   event.preventDefault();
   var item = $(event.target).closest('li');
   $(item).remove();
+
+  // update list to local storage
+  favorites = $('#favsList').html();
+  localStorage.setItem('favorites', favorites);
 }
 
 var key = `AIzaSyDWNMiooGhkXMAhnoTL8pudTR83im36YPo`;
 var searchTerm = `mexico+travel+guide`;
 var url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${key}`;
 searchBooks(url);
+var favorites = localStorage.getItem('favorites');
+if(!favorites){
+  favorites = '';
+}
+$('#favsList').html(favorites);
