@@ -66,4 +66,6 @@ i {
 }
 .videos {
   padding: 3%;
+  background-color: blue;
+  background-size: 25px;
 }
