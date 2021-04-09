@@ -13,12 +13,12 @@ function getInput(event){
   var searchQuery;
   searchQuery = ($(searchBox).val());
   console.log(searchQuery);
-  var ytUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+searchQuery+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
+  var ytUrl ='https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=25&q='+'brazil'+'+travel'+'&key=AIzaSyDD9MbkIVSzT2a3sOv97OecaqhyGdF174c';
   searchVideos(ytUrl);
 
   var key = `AIzaSyDWNMiooGhkXMAhnoTL8pudTR83im36YPo`;
   
-  var bookUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}+travel+guide&key=${key}`;
+  var bookUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}\\+travel+guide&key=${key}`;
   searchBooks(bookUrl);
 }
 
@@ -67,7 +67,7 @@ function searchVideos(requestUrl) {
     })
   };
 
-var input = "mexico"
+
   
 // searchVideos(requestUrl);
 
