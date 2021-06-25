@@ -16,7 +16,7 @@ on the next image, one can see what the initial page looks like. followed by an 
 
 ## Future Potential Development
 Our team of developers would like to include a feature that allows for currency exchange rate information to display along with books and videos for the searched destination.
-##  Deploye app
+##  Deployed app
 
 https://dylan-casanova.github.io/Travel-Mentor/ 
 

@@ -1,3 +1,7 @@
+#Intro{
+  font-size:33px;
+}
+
 .row{
     margin-left: 10%;
     margin-right: 10%;
@@ -81,6 +85,24 @@ i {
 
 @media (max-width: 600px) {
   
+  #Intro{
+    font-size:33px;
+  }
+
+  body{
+    background-image: linear-gradient(
+      to bottom right,
+      #ffffffcb,
+      #009c82 ), 
+    url('/assets/ballon2.jpg');
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    
+  }
+  
   /* items in book list */
   .listItemContent {
     display: flex;
@@ -117,8 +139,12 @@ i {
     display: flex;
     flex-direction: column;
   }
-  .bottom-border img{
+  
+  #tabs{
     
+  }
+  #tabs li{
+    justify-content: space-evenly;
   }
 
   #repWidth{
@@ -139,6 +165,7 @@ i {
   }
   #favsList{
     border: none;
+    
   }
   #favsList li{
     border: none;
@@ -148,7 +175,23 @@ i {
     width: auto;
   }
 
+  .bottom-border{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 
+  #title{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom:15px;
+    color: rgb(255, 255, 255);
+    background-color: #ff5c5ccc;
+  }
 
+  #favListings{
+    padding-bottom: 20px;
+  }
 
 }
