@@ -137,6 +137,7 @@ function searchBooks(url){
       });
       $(item).addClass('collection-item');
       
+      
       // append the list item
       $(bookListEl).append(item);
       console.log($(item));

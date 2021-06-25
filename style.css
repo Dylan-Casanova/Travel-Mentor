@@ -129,6 +129,24 @@ i {
     padding-bottom: 10px;
     padding-top: 10px;
   }
+  
+ 
+  #bookList{
+    border: none;
+  }
+  #bookList li{
+    border: none;
+  }
+  #favsList{
+    border: none;
+  }
+  #favsList li{
+    border: none;
+  }
+  .collection-item img{
+    height: 200px;
+    width: auto;
+  }
 
 
 
