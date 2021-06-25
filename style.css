@@ -72,6 +72,48 @@ i {
 }
 
 .bottom-border{
-  border-bottom: 3px dashed black;
+  
 }
 
+#title{
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  
+  /* items in book list */
+  .listItemContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+
+  
+  /* text in book list */
+  .listText {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .listText p {
+    
+    margin: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+    text-align: center;
+
+  }
+  .listItemContent img {
+    height: 200px;
+    width: auto;
+  }
+
+
+
+
+}
