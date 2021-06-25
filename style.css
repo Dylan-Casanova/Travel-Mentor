@@ -112,6 +112,23 @@ i {
     height: 200px;
     width: auto;
   }
+  
+  .bottom-border{
+    display: flex;
+    flex-direction: column;
+  }
+  .bottom-border img{
+    
+  }
+
+  #repWidth{
+    width: 100%;
+  }
+  #repWidth iframe{
+    height:225px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
 
 
 
