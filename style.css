@@ -1,3 +1,7 @@
+#Intro{
+  font-size:35px;
+}
+
 .row{
     margin-left: 10%;
     margin-right: 10%;
@@ -25,6 +29,12 @@ nav{
   font-size: 20px;
   font-weight: 600;
 }
+#title {
+  color: black;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 
 .author {
   color: black;
@@ -47,6 +57,21 @@ nav{
   justify-content: center;
   align-items: center;
 }
+.listText p {
+    
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  
+  text-align: center;
+
+}
+.listItemContent img {
+  height: 200px;
+  width: auto;
+}
+
+
 
 i {
   font-size: 30px;
@@ -72,6 +97,123 @@ i {
 }
 
 .bottom-border{
-  border-bottom: 3px dashed black;
+  
 }
 
+#title{
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  
+  #Intro{
+    font-size:27px;
+  }
+
+  body{
+    background-image: linear-gradient(
+      to bottom right,
+      #ffffffcb,
+      #009c82 ), 
+    url('/assets/ballon2.jpg');
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    
+  }
+  
+  /* items in book list */
+  .listItemContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+
+  
+  /* text in book list */
+  .listText {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .listText p {
+    
+    margin: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+    text-align: center;
+
+  }
+  .listItemContent img {
+    height: 200px;
+    width: auto;
+  }
+  
+  .bottom-border{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+  }
+  
+  #tabs{
+    
+  }
+  #tabs li{
+    justify-content: space-evenly;
+  }
+
+  #repWidth{
+    width: 100%;
+  }
+  #repWidth iframe{
+    height:225px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  
+ 
+  #bookList{
+    border: none;
+  }
+  #bookList li{
+    border: none;
+  }
+  #favsList{
+    border: none;
+    
+  }
+  #favsList li{
+    border: none;
+  }
+  .collection-item img{
+    height: 200px;
+    width: auto;
+  }
+
+  .bottom-border{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  #title{
+    font-size: 21px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom:15px;
+    color: rgb(255, 255, 255);
+    background-color: #ff5c5ccc;
+  }
+
+  #favListings{
+    padding-bottom: 20px;
+  }
+
+}
