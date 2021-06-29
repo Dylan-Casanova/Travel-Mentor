@@ -159,6 +159,7 @@ i {
   .bottom-border{
     display: flex;
     flex-direction: column;
+    justify-content:center ;
   }
   
   #tabs{
