@@ -1,5 +1,5 @@
 #Intro{
-  font-size:33px;
+  font-size:35px;
 }
 
 .row{
@@ -29,6 +29,12 @@ nav{
   font-size: 20px;
   font-weight: 600;
 }
+#title {
+  color: black;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 
 .author {
   color: black;
@@ -51,6 +57,21 @@ nav{
   justify-content: center;
   align-items: center;
 }
+.listText p {
+    
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  
+  text-align: center;
+
+}
+.listItemContent img {
+  height: 200px;
+  width: auto;
+}
+
+
 
 i {
   font-size: 30px;
